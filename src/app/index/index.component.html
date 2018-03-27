@@ -1,0 +1,34 @@
+<table>
+  <tr *ngFor="let name of names">
+    <th>{{ name.vq }}</th>
+    <th>{{ name.tempo }}</th>
+    <th>{{ name.monitorado }}</th>
+    <th>{{ name.abandonado }}</th>
+  </tr>
+  <tr>
+      <td>Selecione todas as opções ao lado</td>
+      <td></td>
+      <td><input [(ngModel)]="check1[i]" type="checkbox"></td>
+      <td><input [(ngModel)]="check2[i]" type="checkbox"></td>
+  </tr>
+  <tr *ngFor="let setor of setores; index as i">
+    <td>{{setor}}</td>
+    <td>
+      <input type="text" [disabled]="check1[i] == true && check2[i] == true"> 
+    </td>
+    <td>
+      <input [(ngModel)]="check1[i]" type="checkbox"> 
+    </td>
+    <td>
+      <input [(ngModel)]="check2[i]" type="checkbox">
+    </td>
+  </tr>
+</table>
+
+<div id="box">
+  <ul class="pagination">
+    <li *ngFor ="let page of getPaginas(); index as i">
+      <a href="#" [routerLink]="[''+ i]">{{i + 1}}</a>
+    </li>
+  </ul>
+</div>
